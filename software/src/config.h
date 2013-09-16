@@ -53,8 +53,6 @@
 typedef struct {
 	int32_t value[NUM_SIMPLE_VALUES];
 	int32_t last_value[NUM_SIMPLE_VALUES];
-	int16_t value_avg;
-	int32_t value_avg_sum;
 
 	uint32_t signal_period[NUM_SIMPLE_VALUES];
 	uint32_t signal_period_counter[NUM_SIMPLE_VALUES];
