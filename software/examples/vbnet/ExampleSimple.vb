@@ -15,9 +15,9 @@ Module ExampleSimple
         ' Get current intensity
         Dim intensity As Integer = si.GetIntensity()
 
-        System.Console.WriteSoundIntensity("Intensity: " + intensity.ToString())
+        System.Console.Line("Intensity: " + intensity.ToString())
 
-        System.Console.WriteSoundIntensity("Press key to exit")
+        System.Console.Line("Press key to exit")
         System.Console.ReadKey()
         ipcon.Disconnect()
     End Sub
