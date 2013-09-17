@@ -20,7 +20,7 @@ public class ExampleSimple {
 
 		System.out.println("Intensity: " + intensity);
 
-		System.console().readSoundIntensity("Press key to exit\n");
+		System.console().readLine("Press key to exit\n");
 		ipcon.disconnect();
 	}
 }
