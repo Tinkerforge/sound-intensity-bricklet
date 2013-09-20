@@ -7,7 +7,7 @@ Module ExampleThreshold
 
     ' Callback for intensity greater than 2000
     Sub ReachedCB(ByVal sender As BrickletSoundIntensity, ByVal intensity As Integer)
-        System.Console.Line("Intensity: " + intensity.ToString())
+        System.Console.WriteLine("Intensity: " + intensity.ToString())
     End Sub
 
     Sub Main()
@@ -26,7 +26,7 @@ Module ExampleThreshold
         ' Configure threshold for "greater than 2000"
         si.SetIntensityCallbackThreshold(">"C, 2000, 0)
 
-        System.Console.Line("Press key to exit")
+        System.Console.WriteLine("Press key to exit")
         System.Console.ReadKey()
         ipcon.Disconnect()
     End Sub

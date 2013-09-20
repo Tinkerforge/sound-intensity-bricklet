@@ -7,7 +7,7 @@ Module ExampleCallback
 
     ' Callback function for intensity
     Sub IntensityCB(ByVal sender As BrickletSoundIntensity, ByVal intensity As Integer)
-        System.Console.Line("Intensity: " + intensity.ToString())
+        System.Console.WriteLine("Intensity: " + intensity.ToString())
     End Sub
 
     Sub Main()
@@ -25,7 +25,7 @@ Module ExampleCallback
         ' Register intensity callback to function IntensityCB
         AddHandler si.Intensity, AddressOf IntensityCB
 
-        System.Console.Line("Press key to exit")
+        System.Console.WriteLine("Press key to exit")
         System.Console.ReadKey()
         ipcon.Disconnect()
     End Sub
