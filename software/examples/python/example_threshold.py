@@ -8,7 +8,7 @@ UID = "XYZ" # Change to your UID
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_sound_intensity import SoundIntensity
 
-# Callback for intensity greater than 2000 Lux
+# Callback for intensity greater than 2000
 def cb_reached(intensity):
     print('Intensity: ' + str(intensity))
 
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     # Register threshold reached callback to function cb_reached
     si.register_callback(si.CALLBACK_INTENSITY_REACHED, cb_reached)
 
-    # Configure threshold for "greater than 2000 Lux"
+    # Configure threshold for "greater than 2000"
     si.set_intensity_callback_threshold('>', 2000, 0)
 
     raw_input('Press key to exit\n') # Use input() in Python 3
