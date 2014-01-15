@@ -6,9 +6,9 @@ require_once('Tinkerforge/BrickletSoundIntensity.php');
 use Tinkerforge\IPConnection;
 use Tinkerforge\BrickletSoundIntensity;
 
-$host = 'localhost';
-$port = 4223;
-$uid = 'XYZ'; // Change to your UID
+const HOST = 'localhost';
+const PORT = 4223;
+const UID = 'XYZ'; // Change to your UID
 
 // Callback function for intensity
 function cb_intensity($intensity)
@@ -17,9 +17,9 @@ function cb_intensity($intensity)
 }
 
 $ipcon = new IPConnection(); // Create IP connection
-$si = new BrickletSoundIntensity($uid, $ipcon); // Create device object
+$si = new BrickletSoundIntensity(UID, $ipcon); // Create device object
 
-$ipcon->connect($host, $port); // Connect to brickd
+$ipcon->connect(HOST, PORT); // Connect to brickd
 // Don't use device before ipcon is connected
 
 // Set Period for intensity callback to 1s (1000ms)
