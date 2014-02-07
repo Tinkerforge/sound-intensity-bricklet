@@ -1,0 +1,28 @@
+Needs["NETLink`"]
+LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
+
+host="localhost"
+port=4223
+uid="amb"(* Change to your UID *)
+
+(* Create IPConnection and device object *)
+ipcon=NETNew["Tinkerforge.IPConnection"]
+si=NETNew["Tinkerforge.BrickletSoundIntensity",uid,ipcon]
+ipcon@Connect[host,port]
+
+(* Set Period for intensity callback to 1s (1000ms) *)
+(* Note: The intensity callback is only called every second if the *)
+(*       intensity has changed since the last call! *)
+si@SetIntensityCallbackPeriod[1000]
+
+(* Callback function for intensity *)
+IntensityCB[sender_,intensity_]:=
+ Print["Intensity: "<>ToString[intensity]]
+AddEventHandler[si@Intensity,IntensityCB]
+
+Input["Click OK to exit"]
+
+(* Clean up *)
+ipcon@Disconnect[]
+ReleaseNETObject[al]
+ReleaseNETObject[ipcon]
