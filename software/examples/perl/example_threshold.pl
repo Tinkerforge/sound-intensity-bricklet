@@ -7,8 +7,8 @@ use constant HOST => 'localhost';
 use constant PORT => 4223;
 use constant UID => 'abc'; # Change to your UID
 
-my $ipcon = IPConnection->new(); # Create IP connection
-my $si = BrickletSoundIntensity->new(&UID, $ipcon); # Create device object
+my $ipcon = Tinkerforge::IPConnection->new(); # Create IP connection
+my $si = Tinkerforge::BrickletSoundIntensity->new(&UID, $ipcon); # Create device object
 
 # Callback for intensity greater than 2000
 sub cb_reached
