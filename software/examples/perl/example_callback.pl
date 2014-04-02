@@ -14,8 +14,10 @@ my $si = Tinkerforge::BrickletSoundIntensity->new(&UID, $ipcon); # Create device
 sub cb_intensity
 {
     my $intensity = shift;
-    print "\nIntensity: $intensity\n";
+
+    print "Intensity: $intensity\n";
 }
+
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
 # Don't use device before ipcon is connected
 
@@ -27,7 +29,7 @@ $si->set_intensity_callback_period(1000);
 # Register intensity callback to function cb_intensity
 $si->register_callback($si->CALLBACK_INTENSITY, 'cb_intensity');
 
-print "\nPress any key to exit...\n";
+print "Press any key to exit...\n";
 <STDIN>;
 $ipcon->disconnect();
 

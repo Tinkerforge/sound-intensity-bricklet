@@ -14,7 +14,8 @@ my $si = Tinkerforge::BrickletSoundIntensity->new(&UID, $ipcon); # Create device
 sub cb_reached
 {
     my ($intensity) = @_;
-    print "\nIntensity: $intensity\n";
+
+    print "Intensity: $intensity\n";
 }
 
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
@@ -29,7 +30,7 @@ $si->register_callback($si->CALLBACK_INTENSITY_REACHED, 'cb_reached');
 # Configure threshold for "greater than 2000"
 $si->set_intensity_callback_threshold('>', 2000, 0);
 
-print "\nPress any key to exit...\n";
+print "Press any key to exit...\n";
 <STDIN>;
 $ipcon->disconnect();
 
