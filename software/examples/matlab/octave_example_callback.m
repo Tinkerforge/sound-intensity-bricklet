@@ -17,13 +17,13 @@ function octave_example_callback
     si.setIntensityCallbackPeriod(1000);
 
     % Register intensity callback to function cb_intensity
-    si.addIntensityListener("cb_intensity");
+    si.addIntensityCallback(@cb_intensity);
 
-    input("\nPress any key to exit...\n", "s");
+    input("Press any key to exit...\n", "s");
     ipcon.disconnect();
 end
 
 % Callback function for intensity
-function cb_intensity(intensity)
-    fprintf("Intensity: %g\n", intensity);
+function cb_intensity(e)
+    fprintf("Intensity: %g\n", e.intensity);
 end

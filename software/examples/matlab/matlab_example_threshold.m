@@ -16,16 +16,16 @@ function matlab_example_threshold
     si.setDebouncePeriod(1000);
 
     % Register threshold reached callback to function cb_reached
-    set(si, 'IntensityReachedCallback', @(h, e)cb_reached(e.intensity));
+    set(si, 'IntensityReachedCallback', @(h, e) cb_reached(e));
 
     % Configure threshold for "greater than 2000"
     si.setIntensityCallbackThreshold('>', 2000, 0);
 
-    input('\nPress any key to exit...\n', 's');
+    input('Press any key to exit...\n', 's');
     ipcon.disconnect();
 end
 
 % Callback for intensity greater than 2000
-function cb_reached(intensity)
-    fprintf('Intensity: %g\n', intensity);
+function cb_reached(e)
+    fprintf('Intensity: %g\n', e.intensity);
 end

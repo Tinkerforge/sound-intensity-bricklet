@@ -13,9 +13,8 @@ function octave_example_simple
 
     % Get current intensity
     intensity = si.getIntensity();
-
     fprintf("Intensity: %g\n", intensity);
 
-    input("\nPress any key to exit...\n", "s");
+    input("Press any key to exit...\n", "s");
     ipcon.disconnect();
 end

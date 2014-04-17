@@ -18,13 +18,13 @@ function matlab_example_callback
     si.setIntensityCallbackPeriod(1000);
 
     % Register intensity callback to function cb_intensity
-    set(si, 'IntensityCallback', @(h, e)cb_intensity(e.intensity));
+    set(si, 'IntensityCallback', @(h, e) cb_intensity(e));
 
-    input('\nPress any key to exit...\n', 's');
+    input('Press any key to exit...\n', 's');
     ipcon.disconnect();
 end
 
 % Callback function for intensity
-function cb_intensity(intensity)
-    fprintf('Intensity: %g\n', intensity);
+function cb_intensity(e)
+    fprintf('Intensity: %g\n', e.intensity);
 end
