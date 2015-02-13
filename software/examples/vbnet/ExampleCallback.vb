@@ -26,7 +26,7 @@ Module ExampleCallback
         AddHandler si.Intensity, AddressOf IntensityCB
 
         System.Console.WriteLine("Press key to exit")
-        System.Console.ReadKey()
+        System.Console.ReadLine()
         ipcon.Disconnect()
     End Sub
 End Module
