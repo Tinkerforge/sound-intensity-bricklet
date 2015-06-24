@@ -51,8 +51,7 @@
                 si.on(Tinkerforge.BrickletSoundIntensity.CALLBACK_INTENSITY,
                     // Callback function for intensity
                     function(intensity) {
-                        textArea.value += 'Intensity: '+intensity;
-                        textArea.value += '\n';
+                        textArea.value += 'Intensity: '+intensity+'\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );
