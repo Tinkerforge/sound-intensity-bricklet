@@ -19,7 +19,7 @@ public class ExampleThreshold {
 		si.setDebouncePeriod(1000);
 
 		// Configure threshold for "greater than 2000"
-		si.setIntensityCallbackThreshold('>', (short)(2000), (short)0);
+		si.setIntensityCallbackThreshold('>', (short)2000, (short)0);
 
 		// Add and implement intensity reached listener 
 		// (called if intensity is greater than 2000)
