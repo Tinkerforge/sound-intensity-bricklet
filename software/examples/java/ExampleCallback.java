@@ -1,5 +1,5 @@
-import com.tinkerforge.BrickletSoundIntensity;
 import com.tinkerforge.IPConnection;
+import com.tinkerforge.BrickletSoundIntensity;
 
 public class ExampleCallback {
 	private static final String HOST = "localhost";
@@ -15,12 +15,12 @@ public class ExampleCallback {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Set Period for intensity callback to 1s (1000ms)
-		// Note: The intensity callback is only called every second if the 
-		//       intensity has changed since the last call!
+		// Set period for intensity callback to 1s (1000ms)
+		// Note: The intensity callback is only called every second
+		//       if the intensity has changed since the last call!
 		si.setIntensityCallbackPeriod(1000);
 
-		// Add and implement intensity listener (called if intensity changes)
+		// Add intensity listener
 		si.addIntensityListener(new BrickletSoundIntensity.IntensityListener() {
 			public void intensity(int intensity) {
 				System.out.println("Intensity: " + intensity);

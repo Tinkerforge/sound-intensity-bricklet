@@ -1,5 +1,5 @@
-import com.tinkerforge.BrickletSoundIntensity;
 import com.tinkerforge.IPConnection;
+import com.tinkerforge.BrickletSoundIntensity;
 
 public class ExampleSimple {
 	private static final String HOST = "localhost";
@@ -17,7 +17,6 @@ public class ExampleSimple {
 
 		// Get current intensity
 		int intensity = si.getIntensity(); // Can throw com.tinkerforge.TimeoutException
-
 		System.out.println("Intensity: " + intensity);
 
 		System.out.println("Press key to exit"); System.in.read();

@@ -13,8 +13,8 @@ int main() {
 	ipcon_create(&ipcon);
 
 	// Create device object
-	SoundIntensity sound_intensity;
-	sound_intensity_create(&sound_intensity, UID, &ipcon); 
+	SoundIntensity si;
+	sound_intensity_create(&si, UID, &ipcon);
 
 	// Connect to brickd
 	if(ipcon_connect(&ipcon, HOST, PORT) < 0) {
@@ -25,8 +25,8 @@ int main() {
 
 	// Get current intensity
 	uint16_t intensity;
-	if(sound_intensity_get_intensity(&sound_intensity, &intensity) < 0) {
-		fprintf(stderr, "Could not get value, probably timeout\n");
+	if(sound_intensity_get_intensity(&si, &intensity) < 0) {
+		fprintf(stderr, "Could not get intensity, probably timeout\n");
 		exit(1);
 	}
 

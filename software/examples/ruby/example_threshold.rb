@@ -24,7 +24,7 @@ si.register_callback(BrickletSoundIntensity::CALLBACK_INTENSITY_REACHED) do |int
   puts "Intensity: #{intensity}"
 end
 
-# Configure threshold for "greater than 2000 Lux"
+# Configure threshold for "greater than 2000"
 si.set_intensity_callback_threshold '>', 2000, 0
 
 puts 'Press key to exit'
