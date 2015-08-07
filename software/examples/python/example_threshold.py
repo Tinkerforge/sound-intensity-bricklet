@@ -6,7 +6,7 @@ PORT = 4223
 UID = "XYZ" # Change to your UID
 
 from tinkerforge.ip_connection import IPConnection
-from tinkerforge.bricklet_sound_intensity import SoundIntensity
+from tinkerforge.bricklet_sound_intensity import BrickletSoundIntensity
 
 # Callback function for intensity greater than 2000
 def cb_intensity_reached(intensity):
@@ -14,7 +14,7 @@ def cb_intensity_reached(intensity):
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection
-    si = SoundIntensity(UID, ipcon) # Create device object
+    si = BrickletSoundIntensity(UID, ipcon) # Create device object
 
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
