@@ -24,7 +24,7 @@ const
 var
   e: TExample;
 
-{ Callback function for intensity }
+{ Callback procedure for intensity callback }
 procedure TExample.IntensityCB(sender: TBrickletSoundIntensity; const intensity: word);
 begin
   WriteLn(Format('Intensity: %d', [intensity]));
@@ -42,9 +42,9 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  { Set Period for intensity callback to 1s (1000ms)
-    Note: The intensity callback is only called every second if the
-          intensity has changed since the last call! }
+  { Set period for intensity callback to 1s (1000ms)
+    Note: The intensity callback is only called every second
+          if the intensity has changed since the last call! }
   si.SetIntensityCallbackPeriod(1000);
 
   { Register intensity callback to procedure IntensityCB }

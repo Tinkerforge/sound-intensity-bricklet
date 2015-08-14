@@ -12,7 +12,7 @@ type
     ipcon: TIPConnection;
     si: TBrickletSoundIntensity;
   public
-    procedure ReachedCB(sender: TBrickletSoundIntensity; const intensity: word);
+    procedure IntensityReachedCB(sender: TBrickletSoundIntensity; const intensity: word);
     procedure Execute;
   end;
 
@@ -24,8 +24,8 @@ const
 var
   e: TExample;
 
-{ Callback for intensity greater than 2000 }
-procedure TExample.ReachedCB(sender: TBrickletSoundIntensity; const intensity: word);
+{ Callback procedure for intensity greater than 2000 }
+procedure TExample.IntensityReachedCB(sender: TBrickletSoundIntensity; const intensity: word);
 begin
   WriteLn(Format('Intensity: %d', [intensity]));
 end;
@@ -42,11 +42,11 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  { Get threshold callbacks with a debounce time of 1 seconds (1000ms) }
+  { Get threshold callbacks with a debounce time of 1 second (1000ms) }
   si.SetDebouncePeriod(1000);
 
-  { Register threshold reached callback to procedure ReachedCB }
-  si.OnIntensityReached := {$ifdef FPC}@{$endif}ReachedCB;
+  { Register threshold reached callback to procedure IntensityReachedCB }
+  si.OnIntensityReached := {$ifdef FPC}@{$endif}IntensityReachedCB;
 
   { Configure threshold for "greater than 2000" }
   si.SetIntensityCallbackThreshold('>', 2000, 0);
