@@ -5,8 +5,8 @@ Module ExampleThreshold
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change to your UID
 
-    ' Callback for intensity greater than 2000
-    Sub ReachedCB(ByVal sender As BrickletSoundIntensity, ByVal intensity As Integer)
+    ' Callback function for intensity greater than 2000
+    Sub IntensityReachedCB(ByVal sender As BrickletSoundIntensity, ByVal intensity As Integer)
         System.Console.WriteLine("Intensity: " + intensity.ToString())
     End Sub
 
@@ -20,8 +20,8 @@ Module ExampleThreshold
         ' Get threshold callbacks with a debounce time of 1 second (1000ms)
         si.SetDebouncePeriod(1000)
 
-        ' Register threshold reached callback to function ReachedCB
-        AddHandler si.IntensityReached, AddressOf ReachedCB
+        ' Register threshold reached callback to function IntensityReachedCB
+        AddHandler si.IntensityReached, AddressOf IntensityReachedCB
 
         ' Configure threshold for "greater than 2000"
         si.SetIntensityCallbackThreshold(">"C, 2000, 0)
