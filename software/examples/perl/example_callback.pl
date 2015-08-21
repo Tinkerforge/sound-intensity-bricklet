@@ -15,7 +15,7 @@ sub cb_intensity
 {
     my ($intensity) = @_;
 
-    print "Intensity: " . $intensity . "\n";
+    print "Intensity: $intensity\n";
 }
 
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
