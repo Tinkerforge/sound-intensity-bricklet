@@ -15,8 +15,8 @@ $ipcon->connect(&HOST, &PORT); # Connect to brickd
 
 # Get current intensity
 my $intensity = $si->get_intensity();
-print "Intensity: " . $intensity . "\n";
+print "Intensity: $intensity\n";
 
-print "Press any key to exit...\n";
+print "Press key to exit\n";
 <STDIN>;
 $ipcon->disconnect();

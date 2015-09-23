@@ -1,3 +1,4 @@
+using System;
 using Tinkerforge;
 
 class Example
@@ -6,10 +7,10 @@ class Example
 	private static int PORT = 4223;
 	private static string UID = "XYZ"; // Change to your UID
 
-	// Callback function for intensity greater than 2000
+	// Callback function for intensity reached callback
 	static void IntensityReachedCB(BrickletSoundIntensity sender, int intensity)
 	{
-		System.Console.WriteLine("Intensity: " + intensity);
+		Console.WriteLine("Intensity: " + intensity);
 	}
 
 	static void Main()
@@ -23,14 +24,14 @@ class Example
 		// Get threshold callbacks with a debounce time of 1 second (1000ms)
 		si.SetDebouncePeriod(1000);
 
-		// Register threshold reached callback to function IntensityReachedCB
+		// Register intensity reached callback to function IntensityReachedCB
 		si.IntensityReached += IntensityReachedCB;
 
-		// Configure threshold for "greater than 2000"
+		// Configure threshold for intensity "greater than 2000"
 		si.SetIntensityCallbackThreshold('>', 2000, 0);
 
-		System.Console.WriteLine("Press enter to exit");
-		System.Console.ReadLine();
+		Console.WriteLine("Press enter to exit");
+		Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }

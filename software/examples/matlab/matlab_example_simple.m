@@ -1,11 +1,11 @@
-function matlab_example_callback()
+function matlab_example_simple()
     import com.tinkerforge.IPConnection;
     import com.tinkerforge.BrickletSoundIntensity;
 
     HOST = 'localhost';
     PORT = 4223;
-    UID = 'iQb'; % Change to your UID
-    
+    UID = 'XYZ'; % Change to your UID
+
     ipcon = IPConnection(); % Create IP connection
     si = BrickletSoundIntensity(UID, ipcon); % Create device object
 
@@ -14,8 +14,8 @@ function matlab_example_callback()
 
     % Get current intensity
     intensity = si.getIntensity();
-    fprintf('Intensity: %g\n', intensity);
+    fprintf('Intensity: %i\n', intensity);
 
-    input('Press any key to exit...\n', 's');
+    input('Press key to exit\n', 's');
     ipcon.disconnect();
 end

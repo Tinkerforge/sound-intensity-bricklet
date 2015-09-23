@@ -4,27 +4,27 @@ function matlab_example_callback()
 
     HOST = 'localhost';
     PORT = 4223;
-    UID = 'iQb'; % Change to your UID
-    
+    UID = 'XYZ'; % Change to your UID
+
     ipcon = IPConnection(); % Create IP connection
     si = BrickletSoundIntensity(UID, ipcon); % Create device object
 
     ipcon.connect(HOST, PORT); % Connect to brickd
     % Don't use device before ipcon is connected
 
-    % Set Period for intensity callback to 1s (1000ms)
-    % Note: The intensity callback is only called every second if the 
-    %       intensity has changed since the last call!
-    si.setIntensityCallbackPeriod(1000);
-
     % Register intensity callback to function cb_intensity
     set(si, 'IntensityCallback', @(h, e) cb_intensity(e));
 
-    input('Press any key to exit...\n', 's');
+    % Set period for intensity callback to 0.05s (50ms)
+    % Note: The intensity callback is only called every 0.05 seconds
+    %       if the intensity has changed since the last call!
+    si.setIntensityCallbackPeriod(50);
+
+    input('Press key to exit\n', 's');
     ipcon.disconnect();
 end
 
-% Callback function for intensity
+% Callback function for intensity callback
 function cb_intensity(e)
-    fprintf('Intensity: %g\n', e.intensity);
+    fprintf('Intensity: %i\n', e.intensity);
 end

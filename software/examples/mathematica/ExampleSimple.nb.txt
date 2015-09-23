@@ -3,17 +3,17 @@ LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
 
 host="localhost"
 port=4223
-uid="amb"(* Change to your UID *)
+uid="XYZ"(*Change to your UID*)
 
-(* Create IPConnection and device object *)
+(*Create IPConnection and device object*)
 ipcon=NETNew["Tinkerforge.IPConnection"]
 si=NETNew["Tinkerforge.BrickletSoundIntensity",uid,ipcon]
 ipcon@Connect[host,port]
 
-(* Get current intensity *)
+(*Get current intensity*)
 Print["Intensity: "<>ToString[si@GetIntensity[]]]
 
-(* Clean up *)
+(*Clean up*)
 ipcon@Disconnect[]
 ReleaseNETObject[si]
 ReleaseNETObject[ipcon]

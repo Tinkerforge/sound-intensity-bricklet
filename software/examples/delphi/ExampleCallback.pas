@@ -42,13 +42,13 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  { Set period for intensity callback to 1s (1000ms)
-    Note: The intensity callback is only called every second
-          if the intensity has changed since the last call! }
-  si.SetIntensityCallbackPeriod(1000);
-
   { Register intensity callback to procedure IntensityCB }
   si.OnIntensity := {$ifdef FPC}@{$endif}IntensityCB;
+
+  { Set period for intensity callback to 0.05s (50ms)
+    Note: The intensity callback is only called every 0.05 seconds
+          if the intensity has changed since the last call! }
+  si.SetIntensityCallbackPeriod(50);
 
   WriteLn('Press key to exit');
   ReadLn;

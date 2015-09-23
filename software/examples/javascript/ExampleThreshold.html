@@ -34,24 +34,26 @@
                 var si = new Tinkerforge.BrickletSoundIntensity(UID, ipcon); // Create device object
                 ipcon.connect(HOST, PORT,
                     function(error) {
-                        textArea.value += 'Error: '+error+ '\n';
+                        textArea.value += 'Error: ' + error + '\n';
                     }
                 ); // Connect to brickd
                 // Don't use device before ipcon is connected
 
                 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
-                    function(connectReason) {
-                        // Get threshold callbacks with a debounce time of 1 seconds (1000ms)
+                    function (connectReason) {
+                        // Get threshold callbacks with a debounce time of 1 second (1000ms)
                         si.setDebouncePeriod(1000);
-                        // Configure threshold for "greater than 2000"
+
+                        // Configure threshold for intensity "greater than 2000"
                         si.setIntensityCallbackThreshold('>', 2000, 0);
                     }
                 );
-                // Register intensity callback
+
+                // Register intensity reached callback
                 si.on(Tinkerforge.BrickletSoundIntensity.CALLBACK_INTENSITY_REACHED,
-                    // Callback for intensity greater than 2000
-                    function(intensity) {
-                        textArea.value += 'Intensity: '+intensity+'\n';
+                    // Callback function for intensity reached callback
+                    function (intensity) {
+                        textArea.value += 'Intensity: ' + intensity + '\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );

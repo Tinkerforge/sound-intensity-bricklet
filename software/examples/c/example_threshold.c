@@ -7,7 +7,7 @@
 #define PORT 4223
 #define UID "XYZ" // Change to your UID
 
-// Callback function for intensity greater than 2000
+// Callback function for intensity reached callback
 void cb_intensity_reached(uint16_t intensity, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
@@ -33,13 +33,13 @@ int main(void) {
 	// Get threshold callbacks with a debounce time of 1 second (1000ms)
 	sound_intensity_set_debounce_period(&si, 1000);
 
-	// Register threshold reached callback to function cb_intensity_reached
+	// Register intensity reached callback to function cb_intensity_reached
 	sound_intensity_register_callback(&si,
 	                                  SOUND_INTENSITY_CALLBACK_INTENSITY_REACHED,
 	                                  (void *)cb_intensity_reached,
 	                                  NULL);
 
-	// Configure threshold for "greater than 2000"
+	// Configure threshold for intensity "greater than 2000"
 	sound_intensity_set_intensity_callback_threshold(&si, '>', 2000, 0);
 
 	printf("Press key to exit\n");

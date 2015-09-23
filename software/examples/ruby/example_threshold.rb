@@ -19,12 +19,12 @@ ipcon.connect HOST, PORT # Connect to brickd
 # Get threshold callbacks with a debounce time of 1 second (1000ms)
 si.set_debounce_period 1000
 
-# Register threshold reached callback for intensity greater than 2000
+# Register intensity reached callback
 si.register_callback(BrickletSoundIntensity::CALLBACK_INTENSITY_REACHED) do |intensity|
   puts "Intensity: #{intensity}"
 end
 
-# Configure threshold for "greater than 2000"
+# Configure threshold for intensity "greater than 2000"
 si.set_intensity_callback_threshold '>', 2000, 0
 
 puts 'Press key to exit'

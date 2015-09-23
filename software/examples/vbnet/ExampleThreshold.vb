@@ -1,3 +1,4 @@
+Imports System
 Imports Tinkerforge
 
 Module ExampleThreshold
@@ -5,9 +6,9 @@ Module ExampleThreshold
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change to your UID
 
-    ' Callback function for intensity greater than 2000
+    ' Callback subroutine for intensity reached callback
     Sub IntensityReachedCB(ByVal sender As BrickletSoundIntensity, ByVal intensity As Integer)
-        System.Console.WriteLine("Intensity: " + intensity.ToString())
+        Console.WriteLine("Intensity: " + intensity.ToString())
     End Sub
 
     Sub Main()
@@ -20,14 +21,14 @@ Module ExampleThreshold
         ' Get threshold callbacks with a debounce time of 1 second (1000ms)
         si.SetDebouncePeriod(1000)
 
-        ' Register threshold reached callback to function IntensityReachedCB
+        ' Register intensity reached callback to subroutine IntensityReachedCB
         AddHandler si.IntensityReached, AddressOf IntensityReachedCB
 
-        ' Configure threshold for "greater than 2000"
+        ' Configure threshold for intensity "greater than 2000"
         si.SetIntensityCallbackThreshold(">"C, 2000, 0)
 
-        System.Console.WriteLine("Press key to exit")
-        System.Console.ReadLine()
+        Console.WriteLine("Press key to exit")
+        Console.ReadLine()
         ipcon.Disconnect()
     End Sub
 End Module

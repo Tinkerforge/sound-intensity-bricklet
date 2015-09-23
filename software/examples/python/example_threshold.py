@@ -8,9 +8,9 @@ UID = "XYZ" # Change to your UID
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_sound_intensity import BrickletSoundIntensity
 
-# Callback function for intensity greater than 2000
+# Callback function for intensity reached callback
 def cb_intensity_reached(intensity):
-    print('Intensity: ' + str(intensity))
+    print("Intensity: " + str(intensity))
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection
@@ -22,11 +22,11 @@ if __name__ == "__main__":
     # Get threshold callbacks with a debounce time of 1 second (1000ms)
     si.set_debounce_period(1000)
 
-    # Register threshold reached callback to function cb_intensity_reached
+    # Register intensity reached callback to function cb_intensity_reached
     si.register_callback(si.CALLBACK_INTENSITY_REACHED, cb_intensity_reached)
 
-    # Configure threshold for "greater than 2000"
-    si.set_intensity_callback_threshold('>', 2000, 0)
+    # Configure threshold for intensity "greater than 2000"
+    si.set_intensity_callback_threshold(">", 2000, 0)
 
-    raw_input('Press key to exit\n') # Use input() in Python 3
+    raw_input("Press key to exit\n") # Use input() in Python 3
     ipcon.disconnect()

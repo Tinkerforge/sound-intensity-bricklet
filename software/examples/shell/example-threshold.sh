@@ -1,14 +1,17 @@
 #!/bin/sh
-# connects to localhost:4223 by default, use --host and --port to change it
+# Connects to localhost:4223 by default, use --host and --port to change this
 
-# change to your UID
-uid=XYZ
+uid=XYZ # Change to your UID
 
-# get threshold callbacks with a debounce time of 1 seconds (1000ms)
-tinkerforge call sound-intensity-bricklet $uid set-debounce-period 1000 
+# Get threshold callbacks with a debounce time of 1 second (1000ms)
+tinkerforge call sound-intensity-bricklet $uid set-debounce-period 1000
 
-# configure threshold for "greater than 2000"
+# Handle incoming intensity reached callbacks
+tinkerforge dispatch sound-intensity-bricklet $uid intensity-reached &
+
+# Configure threshold for intensity "greater than 2000"
 tinkerforge call sound-intensity-bricklet $uid set-intensity-callback-threshold greater 2000 0
 
-# handle incoming intensity-reached callbacks
-tinkerforge dispatch sound-intensity-bricklet $uid intensity-reached
+echo "Press key to exit"; read dummy
+
+kill -- -$$ # Stop callback dispatch in background

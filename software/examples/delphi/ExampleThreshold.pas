@@ -24,7 +24,7 @@ const
 var
   e: TExample;
 
-{ Callback procedure for intensity greater than 2000 }
+{ Callback procedure for intensity reached callback }
 procedure TExample.IntensityReachedCB(sender: TBrickletSoundIntensity; const intensity: word);
 begin
   WriteLn(Format('Intensity: %d', [intensity]));
@@ -45,10 +45,10 @@ begin
   { Get threshold callbacks with a debounce time of 1 second (1000ms) }
   si.SetDebouncePeriod(1000);
 
-  { Register threshold reached callback to procedure IntensityReachedCB }
+  { Register intensity reached callback to procedure IntensityReachedCB }
   si.OnIntensityReached := {$ifdef FPC}@{$endif}IntensityReachedCB;
 
-  { Configure threshold for "greater than 2000" }
+  { Configure threshold for intensity "greater than 2000" }
   si.SetIntensityCallbackThreshold('>', 2000, 0);
 
   WriteLn('Press key to exit');

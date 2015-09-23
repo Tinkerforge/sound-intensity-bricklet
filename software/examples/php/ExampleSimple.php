@@ -18,7 +18,6 @@ $ipcon->connect(HOST, PORT); // Connect to brickd
 
 // Get current intensity
 $intensity = $si->getIntensity();
-
 echo "Intensity: $intensity\n";
 
 echo "Press key to exit\n";

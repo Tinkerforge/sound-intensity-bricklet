@@ -30,16 +30,16 @@ int main(void) {
 	}
 	// Don't use device before ipcon is connected
 
-	// Set period for intensity callback to 1s (1000ms)
-	// Note: The intensity callback is only called every second
-	//       if the intensity has changed since the last call!
-	sound_intensity_set_intensity_callback_period(&si, 1000);
-
 	// Register intensity callback to function cb_intensity
 	sound_intensity_register_callback(&si,
 	                                  SOUND_INTENSITY_CALLBACK_INTENSITY,
 	                                  (void *)cb_intensity,
 	                                  NULL);
+
+	// Set period for intensity callback to 0.05s (50ms)
+	// Note: The intensity callback is only called every 0.05 seconds
+	//       if the intensity has changed since the last call!
+	sound_intensity_set_intensity_callback_period(&si, 50);
 
 	printf("Press key to exit\n");
 	getchar();
