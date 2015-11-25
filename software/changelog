@@ -1,5 +1,5 @@
-2.0.0:
+2013-10-18: 2.0.0 (b7d25bd)
 - Initial version
 
-2.0.1:
+2013-12-19: 2.0.1 (a4f0086)
 - Fix wrong length for GetDebounce packet (through brickletlib)
