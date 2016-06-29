@@ -7,8 +7,7 @@ Module ExampleThreshold
     Const UID As String = "XYZ" ' Change to your UID
 
     ' Callback subroutine for intensity reached callback
-    Sub IntensityReachedCB(ByVal sender As BrickletSoundIntensity, _
-                           ByVal intensity As Integer)
+    Sub IntensityReachedCB(ByVal sender As BrickletSoundIntensity, ByVal intensity As Integer)
         Console.WriteLine("Intensity: " + intensity.ToString())
     End Sub
 
