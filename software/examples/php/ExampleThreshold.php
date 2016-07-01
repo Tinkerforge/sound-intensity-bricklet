@@ -8,7 +8,7 @@ use Tinkerforge\BrickletSoundIntensity;
 
 const HOST = 'localhost';
 const PORT = 4223;
-const UID = 'XYZ'; // Change to your UID
+const UID = 'XYZ'; // Change XYZ to the UID of your Sound Intensity Bricklet
 
 // Callback function for intensity reached callback
 function cb_intensityReached($intensity)
@@ -26,7 +26,8 @@ $ipcon->connect(HOST, PORT); // Connect to brickd
 $si->setDebouncePeriod(1000);
 
 // Register intensity reached callback to function cb_intensityReached
-$si->registerCallback(BrickletSoundIntensity::CALLBACK_INTENSITY_REACHED, 'cb_intensityReached');
+$si->registerCallback(BrickletSoundIntensity::CALLBACK_INTENSITY_REACHED,
+                      'cb_intensityReached');
 
 // Configure threshold for intensity "greater than 2000"
 $si->setIntensityCallbackThreshold('>', 2000, 0);

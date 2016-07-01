@@ -5,7 +5,7 @@
 
 #define HOST "localhost"
 #define PORT 4223
-#define UID "XYZ" // Change to your UID
+#define UID "XYZ" // Change XYZ to the UID of your Sound Intensity Bricklet
 
 // Callback function for intensity reached callback
 void cb_intensity_reached(uint16_t intensity, void *user_data) {

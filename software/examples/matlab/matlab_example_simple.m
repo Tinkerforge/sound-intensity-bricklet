@@ -4,7 +4,7 @@ function matlab_example_simple()
 
     HOST = 'localhost';
     PORT = 4223;
-    UID = 'XYZ'; % Change to your UID
+    UID = 'XYZ'; % Change XYZ to the UID of your Sound Intensity Bricklet
 
     ipcon = IPConnection(); % Create IP connection
     si = handle(BrickletSoundIntensity(UID, ipcon), 'CallbackProperties'); % Create device object

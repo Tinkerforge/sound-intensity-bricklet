@@ -4,10 +4,11 @@ Imports Tinkerforge
 Module ExampleThreshold
     Const HOST As String = "localhost"
     Const PORT As Integer = 4223
-    Const UID As String = "XYZ" ' Change to your UID
+    Const UID As String = "XYZ" ' Change XYZ to the UID of your Sound Intensity Bricklet
 
     ' Callback subroutine for intensity reached callback
-    Sub IntensityReachedCB(ByVal sender As BrickletSoundIntensity, ByVal intensity As Integer)
+    Sub IntensityReachedCB(ByVal sender As BrickletSoundIntensity, _
+                           ByVal intensity As Integer)
         Console.WriteLine("Intensity: " + intensity.ToString())
     End Sub
 
