@@ -25,7 +25,7 @@ class Example
 		si.SetDebouncePeriod(1000);
 
 		// Register intensity reached callback to function IntensityReachedCB
-		si.IntensityReached += IntensityReachedCB;
+		si.IntensityReachedCallback += IntensityReachedCB;
 
 		// Configure threshold for intensity "greater than 2000"
 		si.SetIntensityCallbackThreshold('>', 2000, 0);
