@@ -10,7 +10,7 @@ tinkerforge call sound-intensity-bricklet $uid set-debounce-period 1000
 tinkerforge dispatch sound-intensity-bricklet $uid intensity-reached &
 
 # Configure threshold for intensity "greater than 2000"
-tinkerforge call sound-intensity-bricklet $uid set-intensity-callback-threshold greater 2000 0
+tinkerforge call sound-intensity-bricklet $uid set-intensity-callback-threshold threshold-option-greater 2000 0
 
 echo "Press key to exit"; read dummy
 
