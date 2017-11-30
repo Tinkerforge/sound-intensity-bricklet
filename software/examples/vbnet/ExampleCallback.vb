@@ -19,7 +19,7 @@ Module ExampleCallback
         ' Don't use device before ipcon is connected
 
         ' Register intensity callback to subroutine IntensityCB
-        AddHandler si.Intensity, AddressOf IntensityCB
+        AddHandler si.IntensityCallback, AddressOf IntensityCB
 
         ' Set period for intensity callback to 0.05s (50ms)
         ' Note: The intensity callback is only called every 0.05 seconds

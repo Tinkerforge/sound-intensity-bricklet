@@ -16,7 +16,7 @@ si@SetDebouncePeriod[1000]
 (*Callback function for intensity reached callback*)
 IntensityReachedCB[sender_,intensity_]:=
  Print["Intensity: "<>ToString[intensity]]
-AddEventHandler[si@IntensityReached,IntensityReachedCB]
+AddEventHandler[si@IntensityReachedCallback,IntensityReachedCB]
 
 (*Configure threshold for intensity "greater than 2000"*)
 option=Tinkerforge`BrickletSoundIntensity`THRESHOLDUOPTIONUGREATER

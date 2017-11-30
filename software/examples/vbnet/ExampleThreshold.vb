@@ -23,7 +23,7 @@ Module ExampleThreshold
         si.SetDebouncePeriod(1000)
 
         ' Register intensity reached callback to subroutine IntensityReachedCB
-        AddHandler si.IntensityReached, AddressOf IntensityReachedCB
+        AddHandler si.IntensityReachedCallback, AddressOf IntensityReachedCB
 
         ' Configure threshold for intensity "greater than 2000"
         si.SetIntensityCallbackThreshold(">"C, 2000, 0)
