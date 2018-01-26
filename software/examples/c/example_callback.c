@@ -11,7 +11,7 @@
 void cb_intensity(uint16_t intensity, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
-	printf("Intensity: %d\n", intensity);
+	printf("Intensity: %u\n", intensity);
 }
 
 int main(void) {

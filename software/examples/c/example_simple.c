@@ -30,7 +30,7 @@ int main(void) {
 		return 1;
 	}
 
-	printf("Intensity: %d\n", intensity);
+	printf("Intensity: %u\n", intensity);
 
 	printf("Press key to exit\n");
 	getchar();
