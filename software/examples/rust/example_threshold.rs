@@ -15,10 +15,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     // Get threshold receivers with a debounce time of 1 second (1000ms).
     si.set_debounce_period(1000);
 
-    // Create receiver for intensity reached events.
-    let intensity_reached_receiver = si.get_intensity_reached_receiver();
+    let intensity_reached_receiver = si.get_intensity_reached_callback_receiver();
 
-    // Spawn thread to handle received events. This thread ends when the `si` object
+    // Spawn thread to handle received callback messages.
+    // This thread ends when the `si` object
     // is dropped, so there is no need for manual cleanup.
     thread::spawn(move || {
         for intensity_reached in intensity_reached_receiver {
