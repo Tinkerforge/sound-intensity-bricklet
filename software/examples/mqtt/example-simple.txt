@@ -3,4 +3,4 @@
 setup:
 	# Get current intensity
 	subscribe to tinkerforge/response/sound_intensity_bricklet/XYZ/get_intensity
-	publish '' to tinkerforge/request/sound_intensity_bricklet/XYZ/get_intensity 
+	publish '' to tinkerforge/request/sound_intensity_bricklet/XYZ/get_intensity
