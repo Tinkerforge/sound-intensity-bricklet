@@ -36,7 +36,7 @@ int main(void) {
 	// Register intensity reached callback to function cb_intensity_reached
 	sound_intensity_register_callback(&si,
 	                                  SOUND_INTENSITY_CALLBACK_INTENSITY_REACHED,
-	                                  (void *)cb_intensity_reached,
+	                                  (void (*)(void))cb_intensity_reached,
 	                                  NULL);
 
 	// Configure threshold for intensity "greater than 2000"

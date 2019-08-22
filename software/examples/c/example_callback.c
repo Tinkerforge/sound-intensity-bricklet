@@ -33,7 +33,7 @@ int main(void) {
 	// Register intensity callback to function cb_intensity
 	sound_intensity_register_callback(&si,
 	                                  SOUND_INTENSITY_CALLBACK_INTENSITY,
-	                                  (void *)cb_intensity,
+	                                  (void (*)(void))cb_intensity,
 	                                  NULL);
 
 	// Set period for intensity callback to 0.05s (50ms)
