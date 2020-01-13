@@ -3,10 +3,10 @@
 setup:
 	# Get threshold callbacks with a debounce time of 1 second (1000ms)
 	publish '{"debounce": 1000}' to tinkerforge/request/sound-intensity_bricklet/XYZ/set_debounce_period
-	
+
 	# Handle incoming intensity reached callbacks
 	subscribe to tinkerforge/callback/sound_intensity_bricklet/XYZ/intensity_reached
 	publish '{"register": true}' to tinkerforge/register/sound_intensity_bricklet/XYZ/intensity_reached # Register intensity_reached callback
-	
+
 	# Configure threshold for intensity "greater than 2000"
 	publish '{"option": "greater", "min": 2000, "max": 0}' to tinkerforge/request/sound_intensity_bricklet/XYZ/set_intensity_callback_threshold
