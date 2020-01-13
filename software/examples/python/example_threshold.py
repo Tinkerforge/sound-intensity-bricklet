@@ -28,5 +28,5 @@ if __name__ == "__main__":
     # Configure threshold for intensity "greater than 2000"
     si.set_intensity_callback_threshold(">", 2000, 0)
 
-    raw_input("Press key to exit\n") # Use input() in Python 3
+    input("Press key to exit\n") # Use raw_input() in Python 2
     ipcon.disconnect()
