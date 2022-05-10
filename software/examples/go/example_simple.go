@@ -20,7 +20,7 @@ func main() {
 
 	// Get current intensity.
 	intensity, _ := si.GetIntensity()
-	fmt.Printf("Intensity: \n", intensity)
+	fmt.Printf("Intensity: %d\n", intensity)
 
 	fmt.Print("Press enter to exit.")
 	fmt.Scanln()
